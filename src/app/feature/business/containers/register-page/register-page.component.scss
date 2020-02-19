@@ -1,0 +1,21 @@
+.title {
+  text-align: center;
+}
+
+:host {
+  display: flex;
+  justify-content: center;
+  margin: 40px 0;
+}
+
+.container {
+  padding: 24px;
+}
+
+.links {
+  display: flex;
+  justify-content: center;
+  padding: 10px;
+  font-size: 14px;
+  border-top: 1px silver solid;
+}

@@ -1,0 +1,4 @@
+<p class="mat-error error-message" *ngIf="error">
+  <span class="details">{{ error?.details }}</span>
+  <span *ngIf="error?.hint" class="hint">{{ error.hint }}</span>
+</p>

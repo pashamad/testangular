@@ -1,0 +1,72 @@
+{
+  "core": {
+    "site_title": "Agent Panel",
+    "copyright": "Onlife management. All rights reserved.",
+    "page_not_found": "Page not found!",
+    "obsolete_browser": "Your browser is not supported. We recommend using the latest version of Firefox, Chrome, Safari or Edge.",
+    "menu": {
+      "places": "Places",
+      "transactions": "Transactions",
+      "logout": "Logout"
+    }
+  },
+  "shared": {
+    "no_data": "No data",
+    "close_btn": "Close",
+    "cancel_btn": "Cancel",
+    "paginator": {
+      "per_page": "Items per page",
+      "first": "First page",
+      "last": "Last page",
+      "next": "Next page",
+      "prev": "Previous page",
+      "sum": "{{ shown }} of {{ total }}"
+    }
+  },
+  "auth": {
+    "title": "Agent Panel Login",
+    "signup_title": "Agent Panel Signup",
+    "email_field": "Email",
+    "username_field": "Username",
+    "password_field": "Password",
+    "confirm_field": "Confirm Password",
+    "login_btn": "Login",
+    "signup_btn": "Signup",
+    "error": {
+      "email_required": "Enter email",
+      "username_required": "Enter username",
+      "username_min_length": "Min. length 2 characters",
+      "password_required": "Enter password",
+      "password_not_match": "Passwords do not match"
+    }
+  },
+  "places": {
+    "table": {
+      "name_cell": "Name",
+      "address_cell": "Address",
+      "coords_cell": "Coordinates",
+      "rating_cell": "Rating",
+      "actions_cell": "Actions",
+      "status_cell": "Status"
+    },
+    "toolbar": {
+      "add_btn": "Add New",
+      "invite_btn": "Invite"
+    },
+    "add": {
+      "dialog_title": "Add Place",
+      "name_field": "Place Name",
+      "address_field": "Address",
+      "contact_field": "Contact Person",
+      "phone_field": "Phone",
+      "email_field": "Email",
+      "add_btn": "Add",
+      "error": {
+        "name_required": "Place name required",
+        "address_required": "Address required",
+        "contact_required": "Contact person name required",
+        "email_required": "Email required"
+      }
+    }
+  }
+}

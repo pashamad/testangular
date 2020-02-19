@@ -1,0 +1,50 @@
+image: node:10.16.3-alpine
+
+pipelines:
+  branches:
+    develop:
+      - step:
+          name: Build
+          caches:
+            - node
+          script:
+            - echo "Building with development configuration"
+            - node preinstall.js
+            - npm install
+            - npm run build
+          artifacts:
+            - dist/business-panel-app/**
+      - step:
+          name: Deploy to test
+          deployment: test
+          script:
+            - echo "Deploying to test environment"
+            - pipe: atlassian/rsync-deploy:0.1.0
+              variables:
+                USER: '$DEPLOY_USER'
+                SERVER: '$DEPLOY_HOST'
+                REMOTE_PATH: '$DEPLOY_DIR'
+                LOCAL_PATH: './dist/business-panel-app/'
+    master:
+      - step:
+          name: Build
+          caches:
+            - node
+          script:
+            - echo "Building with production configuration"
+            - node preinstall.js
+            - npm install
+            - npm run build -- --prod
+          artifacts:
+            - dist/business-panel-app/**
+      - step:
+          name: Deploy to production
+          deployment: production
+          script:
+            - echo "Deploying to production environment"
+            - pipe: atlassian/rsync-deploy:0.1.0
+              variables:
+                USER: '$DEPLOY_USER'
+                SERVER: '$DEPLOY_HOST'
+                REMOTE_PATH: '$DEPLOY_DIR'
+                LOCAL_PATH: './dist/business-panel-app/'

@@ -1,0 +1,46 @@
+<form class="login-form" [formGroup]="form">
+
+  <mat-form-field class="email-field">
+    <input matInput type="email" [placeholder]="'auth.email_field' | translate" maxlength="128"
+      [formControl]="emailControl" required autocomplete="email">
+    <mat-error *ngIf="emailControl.hasError('required')">
+      {{ 'auth.error.email_required' | translate }}
+    </mat-error>
+  </mat-form-field>
+
+  <mat-form-field class="username-field">
+    <input matInput type="text" [placeholder]="'auth.username_field' | translate" maxlength="32"
+      [formControl]="usernameControl" required autocomplete="username">
+    <mat-error *ngIf="usernameControl.hasError('required')">
+      {{ 'auth.error.username_required' | translate }}
+    </mat-error>
+    <mat-error *ngIf="usernameControl.hasError('minLength')">
+      {{ 'auth.error.username_min_length' | translate }}
+    </mat-error>
+  </mat-form-field>
+
+  <mat-form-field class="password-field">
+    <input matInput [type]="hidePassword ? 'password' : 'text'" maxlength="64" minlength="3"
+      [placeholder]="'auth.password_field' | translate" placeholder="Password" [formControl]="pwdControl" required
+      autocomplete="current-password">
+    <mat-icon matSuffix (click)="hidePassword = !hidePassword" class="icon-button hide-password-icon"
+      [svgIcon]="hidePassword ? 'visibility_off' : 'visibility'"></mat-icon>
+    <mat-error *ngIf="pwdControl.hasError('required')">
+      {{ 'auth.error.password_required' | translate }}
+    </mat-error>
+  </mat-form-field>
+
+  <mat-form-field class="confirm-field">
+    <input matInput type="password" maxlength="64" minlength="3" [placeholder]="'auth.confirm_field' | translate"
+      placeholder="Confirm Password" [formControl]="confirmControl" required autocomplete="false">
+    <mat-error *ngIf="confirmControl.hasError('required')">
+      {{ 'auth.error.password_required' | translate }}
+    </mat-error>
+    <mat-error *ngIf="confirmControl.hasError('noMatch')">
+      {{ 'auth.error.password_not_match' | translate }}
+    </mat-error>
+  </mat-form-field>
+
+  <app-signup-controls [form]="form"></app-signup-controls>
+
+</form>

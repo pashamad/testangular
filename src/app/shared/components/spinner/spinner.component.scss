@@ -1,0 +1,13 @@
+:host {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  top: 0;
+  left: 0;
+  background: rgba(192, 192, 192, 0.4);
+  .spinner {
+    position: absolute;
+    left: calc(50% - 50px);
+    top: calc(50% - 50px);
+  }
+}

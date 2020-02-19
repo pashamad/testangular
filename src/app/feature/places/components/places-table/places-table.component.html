@@ -1,0 +1,42 @@
+<table mat-table [dataSource]="dataSource" class="history-table mat-body-2" matSort>
+
+  <ng-container matColumnDef="Name">
+    <th mat-header-cell *matHeaderCellDef translate>places.table.name_cell</th>
+    <td mat-cell *matCellDef="let item">{{ item.name }}</td>
+  </ng-container>
+
+  <ng-container matColumnDef="Address">
+    <th mat-header-cell *matHeaderCellDef translate>places.table.address_cell</th>
+    <td mat-cell *matCellDef="let item">{{ item.address }}</td>
+  </ng-container>
+
+  <ng-container matColumnDef="Coordinates">
+    <th mat-header-cell *matHeaderCellDef translate>places.table.coords_cell</th>
+    <td mat-cell *matCellDef="let item">{{ item.lat }}, {{ item.lng }}</td>
+  </ng-container>
+
+  <ng-container matColumnDef="Rating">
+    <th mat-header-cell *matHeaderCellDef translate>places.table.rating_cell</th>
+    <td mat-cell *matCellDef="let item">{{ item.rating }}</td>
+  </ng-container>
+
+  <ng-container matColumnDef="Status">
+    <th mat-header-cell *matHeaderCellDef translate>places.table.status_cell</th>
+    <td mat-cell *matCellDef="let item">{{ item.status }}</td>
+  </ng-container>
+
+  <ng-container matColumnDef="Actions">
+    <th mat-header-cell *matHeaderCellDef translate></th>
+    <td mat-cell *matCellDef="let item" class="item-actions">
+      <!-- <a (click)="onActionClick()" class="action-button"
+        [matTooltip]="'tooltip' | translate">
+        <mat-icon>list_alt</mat-icon>
+      </a> -->
+    </td>
+  </ng-container>
+
+  <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+  <tr mat-row *matRowDef="let item; columns: displayedColumns;"></tr>
+</table>
+
+<mat-paginator [pageSizeOptions]="[10, 20]" showFirstLastButtons></mat-paginator>

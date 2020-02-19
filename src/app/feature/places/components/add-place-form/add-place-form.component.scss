@@ -1,0 +1,19 @@
+form {
+  display: flex;
+  flex-direction: column;
+  margin: 40px auto;
+}
+
+.field {
+  min-width: 290px;
+}
+
+.lat-field,
+.lng-field {
+  min-width: auto;
+  width: 130px;
+}
+
+.lat-field {
+  margin-right: 30px;
+}

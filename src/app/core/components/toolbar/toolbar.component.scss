@@ -1,0 +1,14 @@
+mat-toolbar {
+  flex-direction: row;
+
+  .user-menu {
+    margin-left: auto;
+  }
+}
+
+.user-menu mat-icon {
+  font-size: 40px;
+  width: 40px;
+  height: 40px;
+  line-height: 40px;
+}

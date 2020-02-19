@@ -1,0 +1,58 @@
+<form [formGroup]="form">
+
+  <div>
+    <mat-form-field class="field">
+      <input matInput type="text" placeholder="Company name" maxlength="128" [formControl]="form.get('common.compName')"
+        required [autocomplete]="false">
+      <mat-error *ngIf="form.get('common.compName').hasError('required')">
+        Company name required
+      </mat-error>
+    </mat-form-field>
+  </div>
+
+  <div>
+    <mat-radio-group class="person-radio-group" (change)="onPersonTypeChange($event)"
+      [formControl]="form.get('common.personType')">
+      <mat-radio-button value="private" class="person-radio-button">Private</mat-radio-button>
+      <mat-radio-button value="legal" class="person-radio-button">Legal</mat-radio-button>
+    </mat-radio-group>
+  </div>
+
+  <div>
+    <mat-form-field>
+      <mat-label>Region</mat-label>
+      <mat-select (selectionChange)="onRegionChange($event)" [formControl]="form.get('common.region')">
+        <mat-option *ngFor="let region of regions" [value]="region.code">
+          {{ region.name }}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+  </div>
+
+  <div class="ext-common-container">
+    <div *ngFor="let entry of commonControls">
+      <mat-form-field class="field">
+        <input matInput type="text" [placeholder]="entry.label" maxlength="128" [formControl]="entry.control"
+          [required]="entry.required" [autocomplete]="false">
+        <mat-error *ngFor="let error of getErrors(entry)">
+          {{ error }}
+        </mat-error>
+      </mat-form-field>
+    </div>
+  </div>
+
+  <div class="ext-region-container">
+    <div *ngFor="let entry of regionControls">
+      <mat-form-field class="field">
+        <input matInput type="text" [placeholder]="entry.label" maxlength="128" [formControl]="entry.control"
+          [required]="entry.required" [autocomplete]="false">
+        <mat-error *ngFor="let error of getErrors(entry)">
+          {{ error }}
+        </mat-error>
+      </mat-form-field>
+    </div>
+  </div>
+
+  <app-business-register-controls [form]="form"></app-business-register-controls>
+
+</form>

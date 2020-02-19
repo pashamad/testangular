@@ -1,0 +1,13 @@
+<!-- TODO: move to template container with content projection -->
+<div mat-dialog-title class="dialog-title">
+  <span translate>places.add.dialog_title</span>
+</div>
+<div mat-dialog-content class="dialog-content">
+  <app-add-place-form [form]="form"></app-add-place-form>
+</div>
+<div mat-dialog-actions>
+  <app-add-place-controls [form]="form"></app-add-place-controls>
+</div>
+<ng-container *ngIf="isPending$ | async">
+  <app-spinner></app-spinner>
+</ng-container>

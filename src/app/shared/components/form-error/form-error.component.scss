@@ -1,0 +1,17 @@
+:host {
+  text-align: center;
+}
+
+.error-message {
+  margin-top: 0;
+
+  span {
+    display: block;
+
+    .details {}
+
+    &.hint {
+      // color: green;
+    }
+  }
+}

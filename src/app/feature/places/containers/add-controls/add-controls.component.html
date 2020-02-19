@@ -1,0 +1,14 @@
+<ng-container>
+  <button mat-raised-button [disabled]="form.invalid" (click)="onAddClick()">
+    <span translate>places.add.add_btn</span>
+  </button>
+  <button mat-raised-button mat-dialog-close tabindex="-1">
+    <span translate>shared.cancel_btn</span>
+  </button>
+</ng-container>
+<!-- TODO: finalize success behaviour -->
+<!-- <ng-template #hasSucceeded>
+  <button mat-raised-button mat-dialog-close tabindex="-1" role="button">
+    <span translate>shared.close_btn</span>
+  </button>
+</ng-template> -->

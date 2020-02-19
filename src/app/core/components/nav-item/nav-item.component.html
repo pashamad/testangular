@@ -1,0 +1,6 @@
+<li>
+  <a [routerLink]="item.link" routerLinkActive="active" class="item-link" [class.disabled]="item?.disabled"
+    *ngIf="!item?.hidden">
+    <span translate>{{ item.name }}</span>
+  </a>
+</li>

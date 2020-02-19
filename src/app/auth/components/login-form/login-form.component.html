@@ -1,0 +1,26 @@
+<form class="login-form" [formGroup]="form">
+
+  <div class="email-field-container">
+    <mat-form-field class="email-field">
+      <input matInput type="email" [placeholder]="'auth.email_field' | translate" maxlength="128"
+        [formControl]="emailControl" required autocomplete="email">
+      <mat-error *ngIf="emailControl.hasError('required')">
+        {{ 'auth.error.email_required' | translate }}
+      </mat-error>
+    </mat-form-field>
+  </div>
+
+  <mat-form-field class="password-field">
+    <input matInput [type]="hidePassword ? 'password' : 'text'" maxlength="64" minlength="3"
+      [placeholder]="'auth.password_field' | translate" placeholder="Password" [formControl]="pwdControl" required
+      autocomplete="current-password">
+    <mat-icon matSuffix (click)="hidePassword = !hidePassword" class="icon-button hide-password-icon"
+      [svgIcon]="hidePassword ? 'visibility_off' : 'visibility'"></mat-icon>
+    <mat-error *ngIf="pwdControl.hasError('required')">
+      {{ 'auth.error.password_required' | translate }}
+    </mat-error>
+  </mat-form-field>
+
+  <app-login-controls [form]="form"></app-login-controls>
+
+</form>

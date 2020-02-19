@@ -1,0 +1,17 @@
+<mat-toolbar>
+
+  <app-navbar></app-navbar>
+
+  <button mat-icon-button class="user-menu" [matMenuTriggerFor]="menu">
+    <mat-icon>account_circle</mat-icon>
+  </button>
+
+  <mat-menu #menu="matMenu">
+    <ng-container>
+      <button mat-menu-item (click)="navigate('/business')">My business</button>
+      <button mat-menu-item disabled>Profile</button>
+      <button mat-menu-item (click)="signout()">Sign out</button>
+    </ng-container>
+  </mat-menu>
+
+</mat-toolbar>

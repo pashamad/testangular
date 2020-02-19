@@ -1,0 +1,59 @@
+<mat-card *ngIf="business">
+  <mat-card-header width="100%">
+    <mat-card-title>{{ business.comp_name }}</mat-card-title>
+  </mat-card-header>
+  <mat-card-content>
+    <div class="field">
+      <span class="label">Type:</span>
+      <span class="value">{{ business.person_type | titlecase }}</span>
+    </div>
+    <div class="field">
+      <span class="label">Region:</span>
+      <span class="value">{{ business.region | uppercase }}</span>
+    </div>
+
+    <div class="field">
+      <span class="label">Bank account:</span>
+      <span class="value">{{ business.bank_acc }}</span>
+    </div>
+
+    <ng-container *ngIf="business.person_type == 'private'">
+
+      <div class="field">
+        <span class="label">ID/Passport number:</span>
+        <span class="value">{{ business.id_number }}</span>
+      </div>
+
+      <ng-container *ngIf="business.region == 'eu'">
+        <div class="field">
+          <span class="label">VAT number:</span>
+          <span class="value">{{ business.vat_number }}</span>
+        </div>
+      </ng-container>
+      <ng-container *ngIf="business.region == 'ru'">
+        <div class="field">
+          <span class="label">INN:</span>
+          <span class="value">{{ business.inn }}</span>
+        </div>
+      </ng-container>
+
+    </ng-container>
+
+    <ng-container *ngIf="business.person_type == 'legal'">
+      <ng-container *ngIf="business.region == 'eu'">
+        <div class="field">
+          <span class="label">Company number:</span>
+          <span class="value">{{ business.comp_number }}</span>
+        </div>
+      </ng-container>
+      <ng-container *ngIf="business.region == 'ru'">
+        <!-- <div class="field">
+          <span class="label">Articles of association:</span>
+          <span class="value">{{ business.art_assoc }}</span>
+        </div> -->
+      </ng-container>
+
+    </ng-container>
+
+  </mat-card-content>
+</mat-card>

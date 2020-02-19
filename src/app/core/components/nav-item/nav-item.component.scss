@@ -1,0 +1,23 @@
+:host {
+  margin: 0 9px;
+}
+
+li {
+  font-size: 14px;
+  text-transform: uppercase;
+}
+
+a {
+  color: rgba(0, 0, 0, .87);
+  text-decoration: none;
+
+  &:hover,
+  &.active {
+    text-decoration: underline;
+  }
+
+  &.disabled {
+    opacity: 0.5;
+    pointer-events: none;
+  }
+}

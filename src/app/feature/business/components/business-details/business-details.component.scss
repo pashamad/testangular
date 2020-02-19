@@ -1,0 +1,23 @@
+mat-card {
+  width: 400px;
+  box-sizing: border-box;
+
+  mat-card-header {
+    margin-bottom: 15px;
+  }
+}
+
+.field {
+  display: flex;
+  margin-bottom: 12px;
+
+  .label {
+    margin-right: 10px;
+    font-size: medium;
+    font-weight: 500;
+  }
+
+  .value {
+    font-size: medium;
+  }
+}
